@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="background-container">
+        <!-- Gradient Animation Background -->
+        <div class="gradient-background">
+            <svg class="hidden">
+                <defs>
+                    <filter id="blurMe">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"></feColorMatrix>
+                        <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                    </filter>
+                </defs>
+            </svg>
+            <div class="gradients-container">
+                <div class="gradient-orb gradient-orb-1"></div>
+                <div class="gradient-orb gradient-orb-2"></div>
+                <div class="gradient-orb gradient-orb-3"></div>
+                <div class="gradient-orb gradient-orb-4"></div>
+                <div class="gradient-orb gradient-orb-5"></div>
+            </div>
+        </div>
+
+        <!-- Stars Background -->
+        <div class="stars-container">
+            <canvas id="starsCanvas" class="stars-canvas"></canvas>
+        </div>
+
+        <!-- Bottom Glow Effect -->
+        <div class="bottom-glow-container">
+            <svg class="bottom-glow-svg">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2EB9DF;stop-opacity:0"></stop>
+                        <stop offset="100%" style="stop-color:#9E00FF;stop-opacity:1"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div class="bottom-gradient"></div>
+            <div class="bottom-glow-orb"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <a href="https://pattens.tech" class="header-logo-link">
+            </a>
+        </header>
+
+        <!-- Hero Section -->
+        <div id="heroSection" class="hero-section">
+            <section class="hero-content">
+                <div class="hero-spacing">
+                    <h1 class="hero-title">Thank you, your feedback has been submitted.</h1>
+                    <p class="hero-description">★★★★☆</p>
+                    <p class="hero-description">You can still leave optional comments to help us understand your rating.</p>
+                    <div class="hero-actions">
+                        <button id="verifyNowBtn" class="btn-verify">
+                            Okay
+                            <span aria-hidden="true" class="btn-verify-arrow">→</span>
+                        </button>
+                    </div>
+                    <p class="hero-terms">
+                        Additional feedback is completely optional. We've already recorded your rating.
+                        <button class="terms-link open-modal">terms and privacy policy</button>.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Feedback Section -->
+        <div id="uploadSection" class="upload-section">
+            <div class="upload-container">
+                <p class="drop-zone-title">Additional feedback</p>
+                <form id="feedbackForm" class="feedback-form">
+                    <textarea id="feedback-textarea" name="feedback" rows="4" placeholder="Add your feedback here..." class="feedback-textarea" aria-label="Additional feedback"></textarea>
+                    <div class="hero-actions">
+                        <button type="submit" class="btn-verify">
+                            Finish
+                            <span aria-hidden="true" class="btn-verify-arrow">→</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Terms & Privacy Modal -->
+        <div id="termsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-overlay"></div>
+            <div class="modal-container">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="modalTitle" class="modal-title">Terms & Privacy</h2>
+                        <button id="closeModal" class="modal-close" aria-label="Close modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="modal-section-title">Terms & Conditions</h3>
+                        <p class="modal-text">Effective Date: 29-10-2025</p>
+                        <p class="modal-text"><strong>1. Introduction</strong></p>
+                        <p class="modal-text">Welcome to Pattens. By accessing or using this website, you agree to comply with and be bound by these Terms of Use. If you do not agree, you must not use this site.</p>
+                        <p class="modal-text"><strong>2. Use of the Service</strong></p>
+                        <p class="modal-text">Our service provides contact list verification, checking whether email addresses appear to be legitimate. You agree to use the service only for lawful purposes and in a way that does not infringe the rights of others or restrict their use of the site.</p>
+                        <p class="modal-text"><strong>3. Data Ownership and Responsibility</strong></p>
+                        <p class="modal-text">You must only upload or enter data that you own or have explicit permission to use. You are fully responsible for ensuring that your use of the service complies with all applicable laws, including data protection and privacy regulations.</p>
+                        <p class="modal-text"><strong>4. Accuracy and Limitations</strong></p>
+                        <p class="modal-text">We make reasonable efforts to ensure the service functions correctly, but we do not guarantee that any email address verified is active, valid, or in use, or that the service will be error-free or continuously available. All use of the service is at your own risk.</p>
+                        <p class="modal-text"><strong>5. Liability</strong></p>
+                        <p class="modal-text">Pattens accepts no liability for any loss, damage, or data issues resulting from the use or misuse of this website. This includes, without limitation, indirect or consequential losses such as loss of data, business, or reputation.</p>
+                        <p class="modal-text"><strong>6. Changes to Terms</strong></p>
+                        <p class="modal-text">We may update these Terms of Use at any time. The updated version will take effect immediately upon publication on this page.</p>
+                        <p class="modal-text"><strong>7. Governing Law</strong></p>
+                        <p class="modal-text">These Terms are governed by and interpreted in accordance with the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="" class="footer-link">
+            
+            <span class="footer-underline"></span>
+            Copyright © 2025
+        </a>
+    </footer>
+
+    <!-- Stars Animation Script -->
+    <script>
+        const canvas = document.getElementById('starsCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Get star size multiplier from CSS variable
+        const starSizeMultiplier = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--star-size-multiplier')) || 2.5;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Star {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 * starSizeMultiplier;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random();
+                this.fadeSpeed = (Math.random() - 0.5) * 0.01;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+                this.opacity += this.fadeSpeed;
+                if (this.opacity <= 0 || this.opacity >= 1) this.fadeSpeed *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        const stars = [];
+        for (let i = 0; i < 150; i++) {
+            stars.push(new Star());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+
+    <!-- Hero to Feedback Transition Script -->
+    <script>
+        const heroSection = document.getElementById('heroSection');
+        const uploadSection = document.getElementById('uploadSection');
+        const verifyNowBtn = document.getElementById('verifyNowBtn');
+
+        verifyNowBtn.addEventListener('click', () => {
+            heroSection.classList.add('hiding');
+            setTimeout(() => {
+                heroSection.style.display = 'none';
+                uploadSection.classList.add('visible');
+            }, 500);
+        });
+    </script>
+
+    <!-- Modal Script -->
+    <script>
+        const modal = document.getElementById('termsModal');
+        const openModalBtns = document.querySelectorAll('.open-modal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalOverlay = document.querySelector('.modal-overlay');
+
+        let previousActiveElement;
+
+        function openModal() {
+            previousActiveElement = document.activeElement;
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            setTimeout(() => closeModalBtn.focus(), 100);
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            if (previousActiveElement) previousActiveElement.focus();
+        }
+
+        openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
+        closeModalBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+        });
+
+        modal.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey && document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                } else if (!e.shiftKey && document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        });
+
+        document.querySelector('.modal-content').addEventListener('click', (e) => e.stopPropagation());
+    </script>
+</body>
+</html>

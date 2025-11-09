@@ -1,0 +1,38 @@
+{
+  "name": "1-click",
+  "version": "1.0.0",
+  "description": "Email newsletter feedback system with public feedback collection page and admin dashboard",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel",
+    "setup": "bash scripts/setup.sh"
+  },
+  "keywords": [
+    "feedback",
+    "newsletter",
+    "surveys",
+    "nextjs",
+    "supabase"
+  ],
+  "author": "Pattens Tech",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pattens-tech/1-click.git"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.78.0",
+    "next": "^16.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
